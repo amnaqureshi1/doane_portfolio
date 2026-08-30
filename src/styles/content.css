@@ -224,6 +224,21 @@
   }
 }
 
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 520px) {
   .intro-aside {
     grid-template-columns: 1fr;
