@@ -10,18 +10,25 @@ interface Props {
 const { src, title, description } = Astro.props;
 ---
 
-{title && <h3 class="video-title">{title}</h3>}
-<figure class="video-figure">
-  <div class="video-container">
-    <video class="video-player" controls preload="metadata">
-      <source src={withBase(src)} type="video/mp4" />
-      Your browser does not support the video tag. Please use a modern browser to watch this video.
-    </video>
-  </div>
-  {description && <p class="video-description">{description}</p>}
-</figure>
+<div class="video-wrapper">
+  {title && <h3 class="video-title">{title}</h3>}
+  <figure class="video-figure">
+    <div class="video-container">
+      <video class="video-player" controls preload="metadata">
+        <source src={withBase(src)} type="video/mp4" />
+        Your browser does not support the video tag. Please use a modern browser to watch this video.
+      </video>
+    </div>
+    {description && <p class="video-description">{description}</p>}
+  </figure>
+</div>
 
 <style>
+  .video-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
   .video-title {
     margin: 0 0 1rem;
     padding-top: 0.25rem;
@@ -32,12 +39,8 @@ const { src, title, description } = Astro.props;
     line-height: 1.3;
   }
 
-  :global(.video-grid .video-title:first-child) {
-    margin-top: 0;
-  }
-
   .video-figure {
-    margin: 0 0 2rem;
+    margin: 0;
   }
 
   .video-container {
