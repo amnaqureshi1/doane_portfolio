@@ -1,0 +1,62 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props {
+  src: string;
+  title?: string;
+  description?: string;
+}
+
+const { src, title, description } = Astro.props;
+---
+
+<figure class="video-figure">
+  {title && <figcaption class="video-caption">{title}</figcaption>}
+  <div class="video-container">
+    <video class="video-player" controls preload="metadata">
+      <source src={withBase(src)} type="video/mp4" />
+      Your browser does not support the video tag. Please use a modern browser to watch this video.
+    </video>
+  </div>
+  {description && <p class="video-description">{description}</p>}
+</figure>
+
+<style>
+  .video-figure {
+    margin: 2rem 0;
+  }
+
+  .video-caption {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-header);
+    margin-bottom: 0.75rem;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: var(--color-surface);
+    border-radius: 0.375rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .video-description {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+</style>

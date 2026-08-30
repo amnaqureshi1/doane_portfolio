@@ -1,5 +1,6 @@
 ---
 import PageShell from '../../../components/PageShell.astro';
+import VideoPlayer from '../../../components/VideoPlayer.astro';
 import { docLinks } from '../../../data/doc-links';
 ---
 
@@ -174,6 +175,12 @@ import { docLinks } from '../../../data/doc-links';
         </tbody>
       </table>
     </div>
+
+    <VideoPlayer
+      src="/videos/course-intro.mp4"
+      title="Course Introduction Video"
+      description="A brief video walkthrough of the course structure, expectations, and first steps for students."
+    />
 
     <p>
       At the beginning of each course, students receive a short course introduction video that walks them
