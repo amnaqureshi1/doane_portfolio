@@ -1,0 +1,15 @@
+---
+import PageShell from '../../components/PageShell.astro';
+import { withBase } from '../../utils/paths';
+---
+
+<PageShell title="Curriculum Coordination">
+  <nav class="section-links" aria-label="Curriculum Coordination sections">
+    <a class="section-link" href={withBase('/curriculum-coordination/broader-teaching-impact/')}>
+      Curriculum Coordination and Broader Teaching Impact
+    </a>
+    <a class="section-link" href={withBase('/curriculum-coordination/development-accomplishments/')}>
+      Curriculum Development Accomplishments
+    </a>
+  </nav>
+</PageShell>

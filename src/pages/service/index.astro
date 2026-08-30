@@ -1,0 +1,28 @@
+---
+import PageShell from '../../components/PageShell.astro';
+import { withBase } from '../../utils/paths';
+---
+
+<PageShell title="Service">
+  <div class="prose">
+    <p>
+      My service contributions during this review period have primarily supported Doane University, the
+      Open Learning Academy, the Biology Department, and the faculty and students served through our
+      online programs. Much of this work is closely connected to my Coordinator role, including faculty
+      hiring and support, course readiness, curriculum coordination, and efforts to improve the student
+      experience. I view this work as an extension of my responsibility to contribute to the academic
+      community beyond my own classroom.
+    </p>
+    <p>
+      I was also nominated to serve on the faculty council and accepted this nomination. Unfortunately, I
+      was not elected to hold a position at this time. However, I will continue to develop my leadership
+      responsibilities and continue to express my interest in serving on faculty council in the future.
+    </p>
+  </div>
+
+  <nav class="section-links" aria-label="Service sections">
+    <a class="section-link" href={withBase('/service/service-to-the-university/')}>
+      Service to the University
+    </a>
+  </nav>
+</PageShell>

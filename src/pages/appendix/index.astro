@@ -1,0 +1,36 @@
+---
+import PageShell from '../../components/PageShell.astro';
+import { docLinks } from '../../data/doc-links';
+import { withBase } from '../../utils/paths';
+---
+
+<PageShell title="Appendix">
+  <nav class="section-links appendix-links" aria-label="Appendix items">
+    <a class="section-link" href={docLinks.ideaEvaluations} target="_blank" rel="noopener noreferrer">IDEA evaluations</a>
+    <a class="section-link" href={docLinks.syllabusHpmy2025} target="_blank" rel="noopener noreferrer">Syllabus HPMY/2025</a>
+    <a class="section-link" href={docLinks.syllabusHpjn2026} target="_blank" rel="noopener noreferrer">Syllabus HPJN/2026</a>
+    <a class="section-link" href={docLinks.bio125FoodIntake} target="_blank" rel="noopener noreferrer">
+      BIO-125 Food Intake Assignment
+    </a>
+    <a class="section-link" href={docLinks.bio125DrawMeiosis} target="_blank" rel="noopener noreferrer">
+      BIO-125 Draw Meiosis Assignment
+    </a>
+    <a class="section-link" href={docLinks.bio126VideoPresentation} target="_blank" rel="noopener noreferrer">
+      BIO-126 Video Presentation Assignment
+    </a>
+    <a class="section-link" href={docLinks.rubric} target="_blank" rel="noopener noreferrer">Rubric</a>
+    <a class="section-link" href={withBase('/appendix/course-intro-video/')}>Course Intro Video</a>
+    <a class="section-link" href={docLinks.module2Announcement} target="_blank" rel="noopener noreferrer">Module 2 Announcement</a>
+    <a class="section-link" href={docLinks.howToDoWellAnnouncement} target="_blank" rel="noopener noreferrer">
+      “How to Do Well in this Course” Announcement
+    </a>
+    <a class="section-link" href={docLinks.studyGuideWorksheet} target="_blank" rel="noopener noreferrer">Study Guide Worksheet</a>
+    <a class="section-link" href={docLinks.timelyCommunication} target="_blank" rel="noopener noreferrer">
+      Timely Communication with Students
+    </a>
+    <a class="section-link" href={docLinks.ideaEvaluations} target="_blank" rel="noopener noreferrer">
+      IDEA Student Evaluations
+    </a>
+    <a class="section-link" href={docLinks.feedbackToStudents} target="_blank" rel="noopener noreferrer">Feedback to Students</a>
+  </nav>
+</PageShell>

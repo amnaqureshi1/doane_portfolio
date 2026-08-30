@@ -1,0 +1,34 @@
+---
+import PageShell from '../../components/PageShell.astro';
+import { withBase } from '../../utils/paths';
+---
+
+<PageShell title="Teaching">
+  <div class="prose">
+    <p>
+      My teaching philosophy is grounded in the belief that asynchronous learning should be intentional,
+      guided, and active. I prioritize meaningful learning over busywork, providing students with clear
+      structure and support while allowing them the independence and flexibility of online learning. I
+      design learning experiences that move beyond memorization by asking students to apply biological
+      concepts, engage in authentic activities, and demonstrate their understanding in meaningful ways. I
+      also recognize the growing role of AI in education and aim to help students develop responsible AI
+      literacy and scientific judgment. Ultimately, I view teaching as an ongoing process of design,
+      implementation, reflection, and revision, using student feedback, performance, and my own
+      observations to continually improve the learning experience.
+    </p>
+
+    <p class="process-flow">Design → Teach → Gather Evidence → Reflect → Revise</p>
+  </div>
+
+  <nav class="section-links" aria-label="Teaching sections">
+    <a class="section-link" href={withBase('/teaching/reflection-on-course-preparation/')}>
+      Reflection on Course Preparation
+    </a>
+    <a class="section-link" href={withBase('/teaching/reflection-on-course-implementation/')}>
+      Reflection on Course Implementation
+    </a>
+    <a class="section-link" href={withBase('/teaching/reflection-on-assessment-of-student-performance/')}>
+      Reflection on Assessment of Student Performance
+    </a>
+  </nav>
+</PageShell>

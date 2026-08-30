@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/content.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  layout?: 'default' | 'wide';
+}
+
+const { title, description, layout = 'default' } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <h1 class="page-title">{title}</h1>
+  <div class:list={['page-body', { 'page-body--wide': layout === 'wide' }]}>
+    <slot />
+  </div>
+</BaseLayout>

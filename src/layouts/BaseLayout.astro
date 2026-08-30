@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import SideNav from '../components/SideNav.astro';
+import { stripBase, withBase } from '../utils/paths';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Tenure portfolio' } = Astro.props;
+const currentPath = stripBase(Astro.url.pathname);
+const fullTitle = title === 'Introduction' ? 'Amna Qureshi | Doane Portfolio' : `${title} | Amna Qureshi`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <button
+          class="menu-button"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="site-sidebar"
+          aria-expanded="false"
+          data-menu-toggle
+        >
+          <svg class="menu-icon menu-icon-open" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+          </svg>
+          <svg class="menu-icon menu-icon-close" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <a class="brand" href={withBase('/')}>
+          <img
+            class="brand-logo"
+            src={withBase('/images/doane-logo.jpg')}
+            alt="Doane University"
+            width="160"
+            height="40"
+          />
+          <div class="brand-text">
+            <p class="brand-title">Amna Qureshi</p>
+            <p class="brand-subtitle">Doane Portfolio 2024–2027</p>
+          </div>
+        </a>
+      </header>
+
+      <div class="layout-body">
+        <div class="sidebar-backdrop" data-sidebar-backdrop hidden></div>
+
+        <aside id="site-sidebar" class="sidebar" aria-label="Site navigation">
+          <div class="sidebar-header">
+            <p class="sidebar-title">Contents</p>
+          </div>
+
+          <SideNav currentPath={currentPath} />
+        </aside>
+
+        <main class="main-content">
+          <div class="content-wrap">
+            <slot />
+          </div>
+        </main>
+      </div>
+
+      <footer class="site-footer">
+        <p>Amna Qureshi · Doane University · Tenure Portfolio</p>
+      </footer>
+    </div>
+
+    <script>
+      const sidebar = document.getElementById('site-sidebar');
+      const backdrop = document.querySelector('[data-sidebar-backdrop]');
+      const toggleButton = document.querySelector('[data-menu-toggle]');
+      let menuOpen = false;
+
+      function setMenuOpen(isOpen) {
+        menuOpen = isOpen;
+        sidebar?.classList.toggle('is-open', isOpen);
+        toggleButton?.classList.toggle('is-open', isOpen);
+        backdrop?.classList.toggle('is-open', isOpen);
+
+        if (backdrop instanceof HTMLElement) {
+          backdrop.hidden = !isOpen;
+        }
+
+        toggleButton?.setAttribute('aria-expanded', String(isOpen));
+        toggleButton?.setAttribute(
+          'aria-label',
+          isOpen ? 'Close navigation menu' : 'Open navigation menu',
+        );
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+
+      toggleButton?.addEventListener('click', () => {
+        setMenuOpen(!menuOpen);
+      });
+
+      backdrop?.addEventListener('click', () => {
+        setMenuOpen(false);
+      });
+
+      sidebar?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          setMenuOpen(false);
+        });
+      });
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setMenuOpen(false);
+        }
+      });
+    </script>
+  </body>
+</html>

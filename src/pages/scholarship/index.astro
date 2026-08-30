@@ -1,0 +1,26 @@
+---
+import PageShell from '../../components/PageShell.astro';
+import { withBase } from '../../utils/paths';
+---
+
+<PageShell title="Scholarship">
+  <div class="prose">
+    <p>
+      My scholarly work during this review period has primarily taken the form of Scholarship of Teaching
+      and Scholarship of Application, consistent with the applied nature of my appointment as an Assistant
+      Professor of Practice and Curriculum Coordinator. My scholarship has centered on the systematic
+      development, evaluation, and application of evidence-informed approaches to online Biology
+      education. This work includes curriculum development, instructional design, assessment development,
+      faculty support, and the application of pedagogical knowledge to improve online learning at Doane.
+    </p>
+  </div>
+
+  <nav class="section-links" aria-label="Scholarship sections">
+    <a class="section-link" href={withBase('/scholarship/scholarship-of-teaching/')}>
+      Scholarship of Teaching
+    </a>
+    <a class="section-link" href={withBase('/scholarship/scholarship-of-application/')}>
+      Scholarship of Application
+    </a>
+  </nav>
+</PageShell>

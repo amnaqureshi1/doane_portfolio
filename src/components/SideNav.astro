@@ -1,0 +1,135 @@
+---
+import { navigation, isExactPath, isDescendantPath } from '../data/navigation';
+import { withBase } from '../utils/paths';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+function hasActiveChild(children?: (typeof navigation)[number]['children']): boolean {
+  if (!children?.length) return false;
+
+  return children.some(
+    (child) =>
+      isExactPath(currentPath, child.href) ||
+      isDescendantPath(currentPath, child.href) ||
+      hasActiveChild(child.children),
+  );
+}
+
+function accordionId(label: string): string {
+  return `nav-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+}
+---
+
+<nav aria-label="Portfolio sections">
+  <ul class="nav-list">
+    {
+      navigation.map((item) => {
+        const itemActive = isExactPath(currentPath, item.href);
+        const childActive = hasActiveChild(item.children);
+        const sectionOpen = itemActive || childActive;
+        const panelId = accordionId(item.label);
+
+        return (
+          <li class:list={['nav-group', { 'is-expanded': sectionOpen }]}>
+            {item.children?.length ? (
+              <>
+                <div class="nav-group-header">
+                  <a
+                    href={withBase(item.href)}
+                    class:list={[
+                      'nav-link',
+                      { 'is-active': itemActive },
+                      { 'is-parent-active': !itemActive && childActive },
+                    ]}
+                    aria-current={itemActive ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                  <button
+                    type="button"
+                    class="nav-accordion-toggle"
+                    aria-expanded={sectionOpen ? 'true' : 'false'}
+                    aria-controls={panelId}
+                    data-accordion-toggle
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M6 9l6 6 6-6"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <ul
+                  id={panelId}
+                  class="nav-sublist"
+                  hidden={!sectionOpen}
+                  data-accordion-panel
+                >
+                  {item.children.map((child) => {
+                    const childItemActive = isExactPath(currentPath, child.href);
+
+                    return (
+                      <li>
+                        <a
+                          href={withBase(child.href)}
+                          class:list={['nav-link', { 'is-active': childItemActive }]}
+                          aria-current={childItemActive ? 'page' : undefined}
+                        >
+                          {child.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            ) : (
+              <a
+                href={withBase(item.href)}
+                class:list={['nav-link', { 'is-active': itemActive }]}
+                aria-current={itemActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<script>
+  function setAccordionExpanded(group, expanded) {
+    const toggle = group.querySelector('[data-accordion-toggle]');
+    const panel = group.querySelector('[data-accordion-panel]');
+
+    group.classList.toggle('is-expanded', expanded);
+    toggle?.setAttribute('aria-expanded', String(expanded));
+
+    if (panel instanceof HTMLElement) {
+      panel.hidden = !expanded;
+    }
+  }
+
+  document.querySelectorAll('.nav-group').forEach((group) => {
+    const toggle = group.querySelector('[data-accordion-toggle]');
+    const panel = group.querySelector('[data-accordion-panel]');
+
+    if (!(toggle instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) {
+      return;
+    }
+
+    toggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      setAccordionExpanded(group, panel.hidden);
+    });
+  });
+</script>
