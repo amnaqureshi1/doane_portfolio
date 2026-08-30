@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageNav from './PageNav.astro';
+import { stripBase } from '../utils/paths';
 import '../styles/content.css';
 
 interface Props {
@@ -9,6 +11,7 @@ interface Props {
 }
 
 const { title, description, layout = 'default' } = Astro.props;
+const currentPath = stripBase(Astro.url.pathname);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -16,4 +19,5 @@ const { title, description, layout = 'default' } = Astro.props;
   <div class:list={['page-body', { 'page-body--wide': layout === 'wide' }]}>
     <slot />
   </div>
+  <PageNav currentPath={currentPath} />
 </BaseLayout>

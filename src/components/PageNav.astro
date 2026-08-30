@@ -1,0 +1,50 @@
+---
+import { flattenNavigation, normalizePath, navigation } from '../data/navigation';
+import { withBase, stripBase } from '../utils/paths';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const pages = flattenNavigation(navigation);
+const normalizedCurrent = normalizePath(currentPath);
+const currentIndex = pages.findIndex(
+  (page) => normalizePath(page.href) === normalizedCurrent,
+);
+
+const prevPage = currentIndex > 0 ? pages[currentIndex - 1] : null;
+const nextPage = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
+---
+
+{
+  (prevPage || nextPage) && (
+    <nav class="page-nav" aria-label="Page navigation">
+      <div class="page-nav-inner">
+        {prevPage ? (
+          <a href={withBase(prevPage.href)} class="page-nav-link page-nav-prev">
+            <span class="page-nav-arrow">←</span>
+            <span class="page-nav-text">
+              <span class="page-nav-label">Previous</span>
+              <span class="page-nav-title">{prevPage.title}</span>
+            </span>
+          </a>
+        ) : (
+          <div class="page-nav-link page-nav-prev page-nav-empty" />
+        )}
+
+        {nextPage ? (
+          <a href={withBase(nextPage.href)} class="page-nav-link page-nav-next">
+            <span class="page-nav-text">
+              <span class="page-nav-label">Next</span>
+              <span class="page-nav-title">{nextPage.title}</span>
+            </span>
+            <span class="page-nav-arrow">→</span>
+          </a>
+        ) : (
+          <div class="page-nav-link page-nav-next page-nav-empty" />
+        )}
+      </div>
+    </nav>
+  )
+}
