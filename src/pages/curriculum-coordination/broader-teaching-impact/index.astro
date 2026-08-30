@@ -1,5 +1,6 @@
 ---
 import PageShell from '../../../components/PageShell.astro';
+import VideoPlayer from '../../../components/VideoPlayer.astro';
 import { docLinks } from '../../../data/doc-links';
 ---
 
@@ -50,5 +51,11 @@ import { docLinks } from '../../../data/doc-links';
       self-paced courses for enrolled students but they will now also be used for marketing and admissions
       purposes for better student communication.
     </p>
+
+    <VideoPlayer
+      src="/videos/self-paced-courses.mp4"
+      title="Self-Paced Course Formats"
+      description="Overview of the 5-week and 16-week self-paced course formats offered through the Open Learning Academy."
+    />
   </div>
 </PageShell>
