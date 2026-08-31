@@ -90,22 +90,6 @@ export const navigation: NavItem[] = [
   {
     label: 'Appendix',
     href: '/appendix/',
-    children: [
-      { label: 'IDEA Evaluations', href: '/appendix/idea-evaluations/' },
-      { label: 'Syllabus HPMY/2025', href: '/appendix/syllabus-hpmy-2025/' },
-      { label: 'Syllabus HPJN/2026', href: '/appendix/syllabus-hpjn-2026/' },
-      { label: 'BIO-125 Food Intake Assignment', href: '/appendix/bio-125-food-intake-assignment/' },
-      { label: 'BIO-125 Draw Meiosis Assignment', href: '/appendix/bio-125-draw-meiosis-assignment/' },
-      { label: 'BIO-126 Video Presentation Assignment', href: '/appendix/bio-126-video-presentation-assignment/' },
-      { label: 'Rubric', href: '/appendix/rubric/' },
-      { label: 'Course Intro Video', href: '/appendix/course-intro-video/' },
-      { label: 'Module 2 Announcement', href: '/appendix/module-2-announcement/' },
-      { label: 'How to Do Well in This Course Announcement', href: '/appendix/how-to-do-well-announcement/' },
-      { label: 'Study Guide Worksheet', href: '/appendix/study-guide-worksheet/' },
-      { label: 'Timely Communication with Students', href: '/appendix/timely-communication-with-students/' },
-      { label: 'IDEA Student Evaluations', href: '/appendix/idea-student-evaluations/' },
-      { label: 'Feedback to Students', href: '/appendix/feedback-to-students/' },
-    ],
   },
 ];
 
