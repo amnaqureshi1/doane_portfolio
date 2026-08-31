@@ -1,7 +1,7 @@
 export const docLinks = {
   coursesTaught: 'https://docs.google.com/document/d/1xm_hnZBAQgFWBcFAHJQ0S53flPHxjVK0rDtnoKy4tUQ/edit?usp=sharing',
   assignmentIdeas: 'https://docs.google.com/document/d/1w0vu_DHKJfBCjrkJgy_kk-s3Q7446tfhx5Z3-emiMBQ/edit?tab=t.0',
-  syllabus: 'https://docs.google.com/document/d/1VdQMLartX6gOH7Vf9EKdzaPuGvrLOM7p/edit?usp=sharing&ouid=114494078965201929598&rtpof=true&sd=true',
+  syllabus: 'https://docs.google.com/document/d/1-NnClqsPZbhLtAudZy2Np-Ih0RA0HiHUqEBHZPkOyJ8/edit?tab=t.0',
   syllabusHpmy2025: 'https://docs.google.com/document/d/1gRePHyW7ZZcMcw400DIgcrAqf7zp_CuD36vYFR8sFyA/edit?tab=t.0',
   syllabusHpjn2026: 'https://docs.google.com/document/d/1-NnClqsPZbhLtAudZy2Np-Ih0RA0HiHUqEBHZPkOyJ8/edit?tab=t.0',
   bio125FoodIntake: 'https://docs.google.com/document/d/1cDdT64wmAPCV91w9J--I7HdBCSx3VHx0UbV9dIz_TVg/edit?usp=sharing',
