@@ -191,39 +191,41 @@
 }
 
 .section-links {
-  display: grid;
-  gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-top: 2rem;
   padding-top: 1.75rem;
   border-top: 1px solid var(--color-border);
 }
 
 .section-link {
-  display: block;
-  padding: 0.875rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-border);
+  background: transparent;
   color: var(--color-header);
   text-decoration: none;
   font-weight: 500;
-  transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease;
+  transition: all 0.2s ease;
   position: relative;
 }
 
 .section-link:hover {
-  border-color: var(--color-accent);
+  border-left-color: var(--color-accent);
   background: var(--color-accent-soft);
   text-decoration: none;
   color: var(--color-accent-dark);
+  padding-left: 1.25rem;
 }
 
 .section-link[target="_blank"]::after {
   content: ' ↗';
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: var(--color-accent);
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
