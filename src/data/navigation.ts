@@ -91,6 +91,7 @@ export const navigation: NavItem[] = [
     label: 'Appendix',
     href: '/appendix/',
     children: [
+      { label: 'Courses Taught', href: '/appendix/courses-taught/' },
       { label: 'IDEA Evaluations', href: '/appendix/idea-evaluations/' },
       { label: 'Syllabus HPMY/2025', href: '/appendix/syllabus-hpmy-2025/' },
       { label: 'Syllabus HPJN/2026', href: '/appendix/syllabus-hpjn-2026/' },
@@ -105,6 +106,13 @@ export const navigation: NavItem[] = [
       { label: 'Timely Communication with Students', href: '/appendix/timely-communication-with-students/' },
       { label: 'IDEA Student Evaluations', href: '/appendix/idea-student-evaluations/' },
       { label: 'Feedback to Students', href: '/appendix/feedback-to-students/' },
+      { label: 'Course Consultant', href: '/appendix/course-consultant/' },
+      { label: 'Course Development Guideline and Checklist', href: '/appendix/course-development-guideline/' },
+      { label: 'Assignment Ideas', href: '/appendix/assignment-ideas/' },
+      { label: 'Course Development Tracking Document', href: '/appendix/course-development-tracking/' },
+      { label: 'Course Readiness Communications', href: '/appendix/course-readiness-communications/' },
+      { label: 'FPAS 2024-2025', href: '/appendix/fpas-2024-2025/' },
+      { label: 'FPAS 2025-2026', href: '/appendix/fpas-2025-2026/' },
     ],
   },
 ];
