@@ -1,4 +1,6 @@
 export const docLinks = {
+  coursesTaught: '',
+  assignmentIdeas: '',
   syllabus: 'https://docs.google.com/document/d/1VdQMLartX6gOH7Vf9EKdzaPuGvrLOM7p/edit?usp=sharing&ouid=114494078965201929598&rtpof=true&sd=true',
   syllabusHpmy2025: 'https://docs.google.com/document/d/1x6PqmTOkRQF3wIW8fzjtwTc6bZnhxOVsVOddOlEPUig/edit?usp=sharing',
   syllabusHpjn2026: 'https://docs.google.com/document/d/1VdQMLartX6gOH7Vf9EKdzaPuGvrLOM7p/edit?usp=sharing&ouid=114494078965201929598&rtpof=true&sd=true',
