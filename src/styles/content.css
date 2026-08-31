@@ -209,6 +209,7 @@
   transition:
     border-color 0.15s ease,
     background-color 0.15s ease;
+  position: relative;
 }
 
 .section-link:hover {
@@ -216,6 +217,13 @@
   background: var(--color-accent-soft);
   text-decoration: none;
   color: var(--color-accent-dark);
+}
+
+.section-link[target="_blank"]::after {
+  content: ' ↗';
+  font-size: 0.9em;
+  color: var(--color-accent);
+  margin-left: 0.25rem;
 }
 
 @media (max-width: 768px) {
