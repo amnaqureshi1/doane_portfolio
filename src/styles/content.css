@@ -111,8 +111,10 @@
 }
 
 .subsection-title {
-  margin: 2.25rem 0 1rem;
-  padding-top: 0.25rem;
+  margin: 2.75rem 0 1.25rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-top: 1px solid var(--color-border);
   font-family: var(--font-serif);
   font-size: 1.375rem;
   font-weight: 700;
@@ -122,6 +124,8 @@
 
 .subsection-title:first-child {
   margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .process-flow {
