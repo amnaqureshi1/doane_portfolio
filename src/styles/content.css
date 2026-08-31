@@ -95,6 +95,17 @@
   line-height: 1.75;
 }
 
+.prose p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  padding-right: 0.5rem;
+  color: var(--color-accent);
+  margin-top: 0.1rem;
+}
+
 .prose p:last-child {
   margin-bottom: 0;
 }
